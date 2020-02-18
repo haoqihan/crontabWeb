@@ -1,0 +1,40 @@
+# For a quick start check out our HTTP Requests collection (Tools|HTTP Client|Open HTTP Requests Collection) or
+# paste cURL into the file and request will be converted to HTTP Request format.
+#
+# Following HTTP Request Live Templates are available:
+# * 'gtrp' and 'gtr' create a GET request with or without query parameters;
+# * 'ptr' and 'ptrp' create a POST request with a simple or parameter-like body;
+# * 'mptr' and 'fptr' create a POST request to submit a form with a text or file field (multipart/form-data);
+# post 提交信息
+POST http://127.0.0.1:8070/job/save
+Content-Type: application/x-www-form-urlencoded
+
+job={"name":"job1","command":"echo 'hello'","cronExpr":"* * * * *"}
+
+###
+POST http://127.0.0.1:8070/job/delete
+Content-Type: application/x-www-form-urlencoded
+
+name=job1
+
+### 获取所有的joblist
+GET http://127.0.0.1:8070/job/list
+Accept: application/json
+
+###  杀死任务
+POST http://127.0.0.1:8070/job/kill
+Content-Type: application/x-www-form-urlencoded
+
+name=job1
+
+### 查看日志
+GET http://127.0.0.1:8070/job/log?name=任务2&limit=4
+Accept: application/json
+
+### 1581989368735 2020-02-18 09:29:28 1581989368735 1581989420400 2020-02-18 09:30:20
+### 1581989372212 2020-02-18 09:29:32 1581989372212 1581989417087 2020-02-18 09:30:17
+### 获取在线服务
+GET http://127.0.0.1:8070/worker/list
+Accept: application/json
+
+###
